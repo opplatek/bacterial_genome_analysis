@@ -32,4 +32,4 @@ $ source activate treponema
 $ jupyter notebook
 ```
 
-From the Jupyter notebook we can open the provided Jupyter notebook and follow the steps of the analysis.
+From the Jupyter notebook we can open the provided Jupyter notebook and perform the analysis.
