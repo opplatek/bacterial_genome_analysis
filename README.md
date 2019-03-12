@@ -98,7 +98,7 @@ $ ln -s $install_dir/strainseeker/builder.pl $CONDA_PREFIX/bin/builder.pl
 
 $ # Jvarkit - BAM downsample
 $ cd $install_dir
-$ git clone "https://github.com/lindenb/jvarkit.git" # We would like to have at least commit ec2c236
+$ git clone "https://github.com/lindenb/jvarkit.git" # We would like to have at least commit ec2c236 (26 Feb 2019)
 $ cd jvarkit
 $ ./gradlew biostar154220
 $ ./gradlew sortsamrefname
