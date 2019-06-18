@@ -99,9 +99,6 @@ Once you installed the Conda environment you can install the required tools and 
 
 ```
 $ conda env create -f treponema_conda_env.yml
-$ conda list -n treponema_conda_env # Make sure you have all the packages installed
-$ # Conda env can be exported as
-$ # conda env export > treponema_conda_env.yml
 ```
 
 In case you get an error
@@ -136,8 +133,8 @@ $ conda config --add channels r
 $ conda config --add channels conda-forge
 $ conda config --add channels bioconda
 $ # Install all the required tools using Conda
-$ conda install -c bioconda fastqc=0.11.8 reaper=16.098 multiqc=1.7 cutadapt=1.18 bbmap=38.22 samtools=1.4 seqtk=1.3 R=3.5.1 bwa=0.7.15 picard=2.9.2 gatk=3.7 qualimap=2.2.2b bcftools=1.4 vcftools=0.1.15 vcflib=1.0.0_rc2 $ freebayes=0.9.21 spades=3.13.0 quast=5.0.2 besst=2.2.8 busco=3.0.2 blast=2.7.1 snpeff=4.3.1t
 $ conda install -c anaconda virtualenv=16.0.0
+$ conda install -c bioconda fastqc=0.11.8 reaper=16.098 multiqc=1.7 cutadapt=1.18 bbmap=38.22 samtools=1.4 seqtk=1.3 R=3.5.1 bwa=0.7.15 picard=2.9.2 gatk=3.7 qualimap=2.2.2b bcftools=1.4 vcftools=0.1.15 vcflib=1.0.0_rc2 freebayes=0.9.21 spades=3.13.0 quast=5.0.2 besst=2.2.8 busco=3.0.2 blast=2.7.1 snpeff=4.3.1t kraken2
 ```
 
 You can also add some Quast addition datasets 
@@ -146,6 +143,13 @@ You can also add some Quast addition datasets
 $ quast-download-gridss
 $ quast-download-silva
 $ quast-download-busco
+```
+
+We can check the installed environment and export it for further references
+
+```
+$ conda list -n treponema # Make sure you have all the packages installed
+$ # conda env export > treponema_conda_env.yml # In case you want to export the environment for "easier" installation
 ```
 
 Now navigate to the downloaded Jupyter notebook from this repository, open open it and follow the rest of the instructions.
