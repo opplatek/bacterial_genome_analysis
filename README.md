@@ -8,24 +8,47 @@ The workflow is written as [Jupyter notebook](https://jupyter.org/) and [Conda e
 # Setting up the environment
 
 ## Jupyter notebook installation
-First, we can install the [Jupyter notebook](https://jupyter.org/) with [bash kernel](https://pypi.org/project/bash_kernel/) (bash kernel works only with Python 3 version of the Jupyter notebook).
+If you have admin rights you can install the [Jupyter notebook](https://jupyter.org/) with [bash kernel](https://pypi.org/project/bash_kernel/) (bash kernel works only with Python 3 version of the Jupyter notebook).
+
+We have to figure out what version of Python is your default.
 
 ```
-$ which pip3
-$ pip3 --version
 $ which python3
 $ python3 --version
+$ which pip
+$ pip --version
+```
 
+In case you see Python and pip 3.x.x are your default please continue with
+
+```
+$ pip install --upgrade pip
+$ pip install bash_kernel
+$ python3 -m bash_kernel.install
+```
+
+In case pip 2.x.x is your default please continue with
+
+```
 $ pip3 install --upgrade pip
 $ pip3 install bash_kernel
 $ python3 -m bash_kernel.install
 ```
 
-If we would like to start the Jupyter notebook we could type (but don't do now):
+If we would like to check the Jupyter notebook you can type:
 
 ```
 $ jupyter notebook
 ```
+
+If this fails you will have to install the Jupyter notebook
+
+```
+python3 -m pip install --upgrade pip
+python3 -m pip install jupyter
+```
+
+If you do not have the admin rights you will first have to install a base Conda environment (please see bellow) and repeat the Jupyter notebook installation.
 
 ## Conda installation
 We strongly recommend to use the provided Conda environment to ensure the compatibility and to simplify the installation. 
@@ -37,17 +60,54 @@ $ install_dir="/home/jan/Tools"
 $ mkdir $install_dir
 $ cd $install_dir
 
-$ wget https://repo.continuum.io/archive/Anaconda2-2018.12-Linux-x86_64.sh
-$ bash Anaconda2-2018.12-Linux-x86_64.sh
+$ wget https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-x86_64.sh
+$ bash Miniconda2-latest-Linux-x86_64.sh
 ```
 
-For more details about the Conda installation please use the Conda help [here](https://conda.io/docs/user-guide/install/index.html).
+and follow the instructions. 
+
+You can also install the full Anaconda if you wish. 
+
+```
+$ wget https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
+$ bash Anaconda3-2019.03-Linux-x86_64.sh
+```
+
+For more details about the Conda installation please use the Conda help [here](https://conda.io/docs/user-guide/install/index.html) or Miniconda help [here](https://docs.conda.io/en/latest/miniconda.html).
+
+Note: If you selected 
+
+```
+Do you wish the installer to initialize Miniconda3
+by running conda init? [yes|no]
+[no] >>> yes
+```
+
+you can turn if off later by executing
+
+```
+conda config --set auto_activate_base false
+```
 
 Once you installed the Conda environment you can install the required tools and dependencies. Most of the tools can be installed directly with the provided YAML configuration. To install the environemnt you can type:
 
 ```
 $ conda env create -f treponema_conda_env.yml
+$ conda list -n treponema_conda_env # Make sure you have all the packages installed
+$ # Conda env can be exported as
+$ # conda env export > treponema_conda_env.yml
 ```
+
+In case you get an error
+
+```
+Collecting package metadata: done
+Solving environment: failed
+
+ResolvePackageNotFound:
+```
+
+Please open the YAML file and delete the specific version of the package and try again. You might have to repeat this a few times. Conda is robust but not that much. 
 
 If you prefere, you can also install everything on your own. However, the full **compatibility cannot be ensured**. If you installed the environment using the previous command please skip to *Finishing setting up the environment* section. The full list of used tools and dependencies can be found in the YAML file (treponema_conda_env.yml) or in the "text" format (treponema_conda_env.txt). 
 
@@ -60,7 +120,7 @@ $ conda config --add channels r
 $ conda config --add channels conda-forge
 $ conda config --add channels bioconda
 $ # Install all the required tools using Conda
-$ conda install -c bioconda fastqc=0.11.8 reaper=16.098 multiqc=1.7 cutadapt=1.18 bbmap=38.22 samtools=1.4 seqtk=1.3 R=3.5.1 bwa=0.7.15 picard=2.9.2 gatk=3.7 qualimap=2.2.2b bcftools=1.4 vcftools=0.1.15 vcflib=1.0.0_rc2 $ freebayes=0.9.21 spades=3.13.0 quast=5.0.2 besst=2.2.8 busco=3.0.2 blast=2.7.1 snpeff=4.3.1t # ngsutils=0.5.9
+$ conda install -c bioconda fastqc=0.11.8 reaper=16.098 multiqc=1.7 cutadapt=1.18 bbmap=38.22 samtools=1.4 seqtk=1.3 R=3.5.1 bwa=0.7.15 picard=2.9.2 gatk=3.7 qualimap=2.2.2b bcftools=1.4 vcftools=0.1.15 vcflib=1.0.0_rc2 $ freebayes=0.9.21 spades=3.13.0 quast=5.0.2 besst=2.2.8 busco=3.0.2 blast=2.7.1 snpeff=4.3.1t
 $ conda install -c anaconda virtualenv=16.0.0
 ```
 
