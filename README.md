@@ -35,20 +35,26 @@ $ pip3 install bash_kernel
 $ python3 -m bash_kernel.install
 ```
 
+If you don't have the admin access please ask your admin to install this for you.
+
 If we would like to check the Jupyter notebook you can type:
 
 ```
 $ jupyter notebook
 ```
 
-If this fails you will have to install the Jupyter notebook
+If this fails check you have the Jupyter notebook installedyou
+
+```
+$ jupyter notebook
+```
+
+If not, you will have to install the Jupyter notebook (please note you will need Jupyter based on Python 3 to work with bash kernel but the Conda environment we will use is on Python 2).
 
 ```
 python3 -m pip install --upgrade pip
 python3 -m pip install jupyter
 ```
-
-If you do not have the admin rights you will first have to install a base Conda environment (please see bellow) and repeat the Jupyter notebook installation.
 
 ## Conda installation
 We strongly recommend to use the provided Conda environment to ensure the compatibility and to simplify the installation. 
@@ -105,11 +111,21 @@ Collecting package metadata: done
 Solving environment: failed
 
 ResolvePackageNotFound:
+  - r-pillar=1.3.1
+```
+or
+```
+Collecting package metadata: done
+Solving environment: failed
+
+UnsatisfiableError: The following specifications were found to be in conflict:
+  - bioconductor-genomeinfodbdata==1.1.0=r351_0
+  - dbus==1.13.0=h3a4f0e9_0
 ```
 
 Please open the YAML file and delete the specific version of the package and try again. You might have to repeat this a few times. Conda is robust but not that much. 
 
-If you prefere, you can also install everything on your own. However, the full **compatibility cannot be ensured**. If you installed the environment using the previous command please skip to *Finishing setting up the environment* section. The full list of used tools and dependencies can be found in the YAML file (treponema_conda_env.yml) or in the "text" format (treponema_conda_env.txt). 
+If you prefer, you can also install everything on your own. However, the full **compatibility cannot be ensured**. If you installed the environment using the previous command please skip to *Finishing setting up the environment* section. The full list of used tools and dependencies can be found in the YAML file (treponema_conda_env.yml) or in the "text" format (treponema_conda_env.txt). 
 
 ```
 $ # Create new conda environment
@@ -124,13 +140,20 @@ $ conda install -c bioconda fastqc=0.11.8 reaper=16.098 multiqc=1.7 cutadapt=1.1
 $ conda install -c anaconda virtualenv=16.0.0
 ```
 
+You can also add some Quast addition datasets 
+
+```
+$ quast-download-gridss
+$ quast-download-silva
+$ quast-download-busco
+```
 
 Now navigate to the downloaded Jupyter notebook from this repository, open open it and follow the rest of the instructions.
 
 Now everything (almost - we will have to install two more tools not available through Conda) should be ready and we can launch the Jupyter notebook. 
 
 ## Finishing setting up the environment
-Two tools ([jvarkit](https://github.com/lindenb/jvarkit) and [StrainSeeker](http://bioinfo.ut.ee/strainseeker/)) are not available in Conda so we have to install them separately. First we load the Conda environment to ensure the best compatibility. One tool ([NGSutils/BAMutils](https://github.com/ngsutils/ngsutils) has a bug in the Conda installation so we have to install it manually.
+Two tools ([StrainSeeker](http://bioinfo.ut.ee/strainseeker/) and [jvarkit](https://github.com/lindenb/jvarkit)) are not available in Conda so we have to install them separately. First we load the Conda environment to ensure the best compatibility. One tool ([NGSutils/BAMutils](https://github.com/ngsutils/ngsutils) has a bug in the Conda installation so we have to install it manually.
 
 ```
 $ source activate treponema
@@ -169,13 +192,12 @@ $ ln -s $install_dir/jvarkit/dist/sortsamrefname.jar $CONDA_PREFIX/bin/sortsamre
 
 $ # NGSutils - BAMutils
 $ cd $install_dir/
-$ source activate treponema
 $ # IMPORTANT: You need at least commit a7f08f5 (9 Feb 2017)
 $ git clone git://github.com/ngsutils/ngsutils.git
 $ cd ngsutils
-$ # IMPORTANT: Make sure that both init.sh and test.sh have Python set to Python2.6+! If necessary, manually rename the Python version. For example, in init.sh (and test.sh) change "python" to "python2" otherwise you might get an error during the "make" command.
+$ # IMPORTANT: Make sure that both init.sh and test.sh have Python set to Python2.6+! If necessary, manualy set the Python version. For example, in init.sh (and test.sh) change "python" to "python2" otherwise you might get an error during the "make" command.
 $ # IMPORTANT2: You might have to exit the environment to install the NGSutils
-$ make
+$ # make # Only if you need other than read-only access
 $ for i in $install_dir/ngsutils/bin/*;do ln -s $i $CONDA_PREFIX/bin/$(basename $i); done
 ```
  

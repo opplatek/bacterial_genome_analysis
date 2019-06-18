@@ -42,7 +42,6 @@ dependencies:
   - libdeflate=1.0=h470a237_0
   - mathstats=0.2.6.5=py_0
   - multiqc=1.7=py_1
-  - ngsutils=0.5.9=py27_1
   - perl-app-cpanminus=1.7044=pl526_1
   - perl-archive-tar=2.32=pl526_0
   - perl-autoloader=5.74=pl526_1
