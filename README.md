@@ -235,3 +235,5 @@ source deactivate
 # Open the Jupyter notebook
 jupyter notebook
 ```
+
+And load the downloaded **grillova_et_al_dpn_enrich.ipynb** and enjoy the analysis.
