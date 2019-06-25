@@ -45,7 +45,7 @@ dependencies:
   - bzip2=1.0.6=h14c3975_1002
   - ca-certificates=2019.6.16=hecc5488_0
   - cairo=1.14.12=h80bd089_1005
-  - certifi=2019.3.9=py27_0
+  - certifi=2019.6.16=py27_0
   - cffi=1.12.3=py27h8022711_0
   - chardet=3.0.4=py27_1003
   - circos=0.69.6=5
@@ -199,6 +199,7 @@ dependencies:
   - perl-text-parsewords=3.30=pl526_0
   - perl-time-hires=1.9760=pl526h14c3975_1
   - perl-try-tiny=0.30=pl526_1
+  - perl-vcftools-vcf=0.1.15=pl526_2
   - perl-version=0.9924=pl526_0
   - perl-xml-parser=2.44=pl526h4e0c4b3_7
   - perl-xsloader=0.24=pl526_0

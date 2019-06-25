@@ -43,13 +43,7 @@ If we would like to check the Jupyter notebook you can type:
 jupyter notebook
 ```
 
-If this fails check you have the Jupyter notebook installedyou
-
-```
-jupyter notebook
-```
-
-If not, you will have to install the Jupyter notebook (please note you will need Jupyter based on Python 3 to work with bash kernel but the Conda environment we will use is on Python 2).
+If this fails check you have to install the Jupyter notebook (please note you will need Jupyter based on Python 3 to work with bash kernel but the Conda environment we will use is on Python 2).
 
 ```
 python3 -m pip install --upgrade pip
@@ -134,7 +128,7 @@ conda config --add channels conda-forge
 conda config --add channels bioconda
 # Install all the required tools using Conda
 conda install -c anaconda virtualenv=16.0.0
-conda install -c bioconda fastqc=0.11.8 reaper=16.098 multiqc=1.7 cutadapt=1.18 bbmap=38.22 samtools=1.4 seqtk=1.3 R=3.5.1 bwa=0.7.15 picard=2.9.2 gatk=3.7 qualimap=2.2.2b bcftools=1.4 vcftools=0.1.15 vcflib=1.0.0_rc2 freebayes=0.9.21 spades=3.13.0 quast=5.0.2 besst=2.2.8 busco=3.0.2 blast=2.7.1 snpeff=4.3.1t kraken2=2.0.8_beta
+conda install -c bioconda fastqc=0.11.8 reaper=16.098 multiqc=1.7 cutadapt=1.18 bbmap=38.22 samtools=1.4 seqtk=1.3 R=3.5.1 bwa=0.7.15 picard=2.9.2 gatk=3.7 qualimap=2.2.2b bcftools=1.4 vcftools=0.1.15 perl-vcftools-vcf=0.1.15 vcflib=1.0.0_rc2 freebayes=0.9.21 spades=3.13.0 quast=5.0.2 besst=2.2.8 busco=3.0.2 blast=2.7.1 snpeff=4.3.1t kraken2=2.0.8_beta 
 ```
 
 You can also add some Quast addition datasets 
@@ -211,7 +205,6 @@ cd jvarkit
 # Link the executables to the Conda environment if necessary
 chmod a+x $install_dir/jvarkit/dist/*.jar
 ln -s $install_dir/jvarkit/dist/biostar154220.jar $CONDA_PREFIX/bin/downsamplebam.jar
-ln -s $install_dir/jvarkit/dist/biostar154220.jar $CONDA_PREFIX/bin/biostar154220.jar # Just for compatibility reasons
 ln -s $install_dir/jvarkit/dist/sortsamrefname.jar $CONDA_PREFIX/bin/sortsamrefname.jar
 ln -s $install_dir/jvarkit/dist/samjs.jar $CONDA_PREFIX/bin/samjs.jar
 
