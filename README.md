@@ -236,4 +236,4 @@ source deactivate
 jupyter notebook
 ```
 
-And load the downloaded **grillova_et_al_dpn_enrich.ipynb** and enjoy the analysis.
+And load the downloaded (**grillova_et_al_dpn_enrich.ipynb**)(https://github.com/opplatek/grillova_et_al_dpn_enrich/blob/master/grillova_et_al_dpn_enrich.ipynb) and enjoy the analysis.
