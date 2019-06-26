@@ -1,7 +1,7 @@
-# Grillova et al. DpnI enrichment 
-This repository contains all the steps necessary to reproduce the analyses done in Grillova et al. 2019 - DpnI enrichment publication. 
+# Workflow for methyl-directed enrichment sequencing analysis of bacterial genomes
+This repository contains all the steps necessary to reproduce the analyses done in Grillova et al. 2019 - methyl-directed bacterial enrichment publication. 
 
-This workflow can be used for analysis of **any** bacterial genome and is especially designed for analysis of highly contaminated deep sequencing samples of Treponema (Illumina, paired-end, Nextera). It can work with samples contaminated by a host genome DNAas well as any other organisms (both known and unknown). It does not depend on predefined database of the contaminants and therefore avoids missing unknown organisms contamnation. It is highly sensitive and specific at the same time and combines alignment-base assembly and the *de novo* assembly to cover all possible variation.
+This workflow can be used for analysis of **any** bacterial genome and is especially designed for analysis of highly contaminated deep sequencing samples of Treponema pallidum (low-variable genome, Illumina, paired-end, Nextera). It can work with samples contaminated by a host genome DNAas well as any other organisms (both known and unknown). It does not depend on predefined database of the contaminants and therefore avoids missing unknown organisms contamnation. It is highly sensitive and specific at the same time and combines alignment-base assembly and the *de novo* assembly to cover all possible variation.
 
 The workflow is written as [Jupyter notebook](https://jupyter.org/) and [Conda environment](https://conda.io/docs/) to ensure the reproducibility and easiness of the installation.
 
