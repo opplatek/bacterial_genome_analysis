@@ -127,9 +127,9 @@ conda config --add channels r
 conda config --add channels conda-forge
 conda config --add channels bioconda
 # Install all the required tools using Conda
-conda install -c anaconda virtualenv=16.0.0
-conda install -c bioconda fastqc=0.11.8 reaper=16.098 multiqc=1.7 cutadapt=1.18 bbmap=38.22 samtools=1.4 seqtk=1.3 R=3.5.1 bwa=0.7.15 picard=2.9.2 gatk=3.7 qualimap=2.2.2b bcftools=1.4 vcftools=0.1.15 perl-vcftools-vcf=0.1.15 vcflib=1.0.0_rc2 freebayes=0.9.21 spades=3.13.0 quast=5.0.2 besst=2.2.8 busco=3.0.2 blast=2.9.0 snpeff=4.3.1t kraken2=2.0.8_beta prokka=1.13.7 mummer=3.23
-conda install -c conda-forge gnuplot
+#conda install -c anaconda virtualenv=16.0.0 # Added to the main installation command but untested if it works
+conda install -c bioconda fastqc=0.11.8 reaper=16.098 multiqc=1.3 cutadapt=1.18 bbmap=38.22 samtools=1.4 seqtk=1.3 R=3.5.1 bwa=0.7.15 picard=2.9.2 gatk=3.7 qualimap=2.2.2b bcftools=1.4 vcftools=0.1.15 perl-vcftools-vcf=0.1.15 vcflib=1.0.0_rc2 freebayes=0.9.21 spades=3.13.0 quast=5.0.2 besst=2.2.8 busco=3.0.2 blast=2.9.0 snpeff=4.3.1t kraken2=2.0.8_beta prokka=1.13.7 mummer=3.23 networkx=1.9 virtualenv=16.0.0
+conda install -c conda-forge gnuplot=5.2.7
 ```
 
 You can also add some Quast addition datasets 
