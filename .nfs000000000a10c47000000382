@@ -1,14 +1,14 @@
 # Workflow for methyl-directed enrichment sequencing analysis of bacterial genomes
 This repository contains all the steps necessary to reproduce the analyses done in Grillova et al. 2019 - methyl-directed bacterial enrichment publication. 
 
-This workflow can be used for the analysis of **any** bacterial genome and is specially designed for analysis of highly contaminated deep sequencing samples of Treponema pallidum (low-variable genome, Illumina, paired-end, Nextera). It can work with samples contaminated by a host genome DNA as well as any other organisms (both known and unknown). It does not depend on a predefined database of the contaminants and therefore avoids missing unknown organisms contamination. It is highly sensitive and specific at the same time and combines alignment-base assembly and the *de novo* assembly to cover all possible variation.
+This workflow can be used for analysis of **any** bacterial genome and is especially designed for analysis of highly contaminated deep sequencing samples of Treponema pallidum (low-variable genome, Illumina, paired-end, Nextera). It can work with samples contaminated by a host genome DNAas well as any other organisms (both known and unknown). It does not depend on predefined database of the contaminants and therefore avoids missing unknown organisms contamnation. It is highly sensitive and specific at the same time and combines alignment-base assembly and the *de novo* assembly to cover all possible variation.
 
 The workflow is written as [Jupyter notebook](https://jupyter.org/) and [Conda environment](https://conda.io/docs/) to ensure the reproducibility and easiness of the installation.
 
 # Setting up the environment
 
 ## Jupyter notebook installation
-If you have admin rights, you can install the [Jupyter notebook](https://jupyter.org/) with [bash kernel](https://pypi.org/project/bash_kernel/) (bash kernel works only with Python 3 version of the Jupyter notebook).
+If you have admin rights you can install the [Jupyter notebook](https://jupyter.org/) with [bash kernel](https://pypi.org/project/bash_kernel/) (bash kernel works only with Python 3 version of the Jupyter notebook).
 
 We have to figure out what version of Python is your default.
 
@@ -35,7 +35,7 @@ pip3 install bash_kernel
 python3 -m bash_kernel.install
 ```
 
-If you don't have the admin access, please ask your admin to install this for you. If you have access to Jupyter notebook but you cannot install the Bash kernel [this](https://blog.dominodatalab.com/lesser-known-ways-of-using-notebooks/) could be the way around.
+If you don't have the admin access please ask your admin to install this for you. If you ave access to Jupyter notebook but you cannot install the Bash kernel [this](https://blog.dominodatalab.com/lesser-known-ways-of-using-notebooks/) could be the way around.
 
 If we would like to check the Jupyter notebook you can type:
 
@@ -43,7 +43,7 @@ If we would like to check the Jupyter notebook you can type:
 jupyter notebook
 ```
 
-If this fails you have to install the Jupyter notebook (please note you will need Jupyter based on Python 3 to work with bash kernel but the Conda environment we will use is on Python 2).
+If this fails check you have to install the Jupyter notebook (please note you will need Jupyter based on Python 3 to work with bash kernel but the Conda environment we will use is on Python 2).
 
 ```
 python3 -m pip install --upgrade pip
@@ -51,7 +51,7 @@ python3 -m pip install jupyter
 ```
 
 ## Conda installation
-We strongly recommend using the provided Conda environment to ensure the compatibility and to simplify the installation. 
+We strongly recommend to use the provided Conda environment to ensure the compatibility and to simplify the installation. 
 
 If you do not have Conda already installed in your system, first you have to install Conda itself. The example of the installation for 64-bit Linux is the following:
 
@@ -73,7 +73,7 @@ wget https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
 bash Anaconda3-2019.03-Linux-x86_64.sh
 ```
 
-For more details about the Conda installation, please use the Conda help [here](https://conda.io/docs/user-guide/install/index.html) or Miniconda help [here](https://docs.conda.io/en/latest/miniconda.html).
+For more details about the Conda installation please use the Conda help [here](https://conda.io/docs/user-guide/install/index.html) or Miniconda help [here](https://docs.conda.io/en/latest/miniconda.html).
 
 Note: If you selected 
 
@@ -83,13 +83,13 @@ by running conda init? [yes|no]
 [no] >>> yes
 ```
 
-you can turn it off later by executing
+you can turn if off later by executing
 
 ```
 conda config --set auto_activate_base false
 ```
 
-Once you installed the Conda environment, you can install the required tools and dependencies. Most of the tools can be installed directly with the provided YAML configuration. To install the environment, you can type:
+Once you installed the Conda environment you can install the required tools and dependencies. Most of the tools can be installed directly with the provided YAML configuration. To install the environemnt you can type:
 
 ```
 conda env create -f treponema_conda_env.yml
@@ -114,9 +114,9 @@ UnsatisfiableError: The following specifications were found to be in conflict:
   - dbus==1.13.0=h3a4f0e9_0
 ```
 
-Please open the YAML file and delete the specific version of the package and try again. You might have to repeat this a few times. Conda is robust, but not that much. 
+Please open the YAML file and delete the specific version of the package and try again. You might have to repeat this a few times. Conda is robust but not that much. 
 
-If you prefer, you can also install everything on your own. However, the full **compatibility cannot be ensured**. If you installed the environment using the previous command, please skip to *Finishing setting up the environment* section. The full list of used tools and dependencies can be found in the YAML file (treponema_conda_env.yml) or in the "text" format (treponema_conda_env.txt). 
+If you prefer, you can also install everything on your own. However, the full **compatibility cannot be ensured**. If you installed the environment using the previous command please skip to *Finishing setting up the environment* section. The full list of used tools and dependencies can be found in the YAML file (treponema_conda_env.yml) or in the "text" format (treponema_conda_env.txt). 
 
 ```
 # Create new conda environment
@@ -156,12 +156,12 @@ conda list -n treponema # Make sure you have all the packages installed
 # conda env export > treponema_conda_env.yml # In case you want to export the environment for "easier" installation
 ```
 
-Now navigate to the downloaded Jupyter notebook from this repository, open it and follow the rest of the instructions.
+Now navigate to the downloaded Jupyter notebook from this repository, open open it and follow the rest of the instructions.
 
 Now everything (almost - we will have to install two more tools not available through Conda) should be ready and we can launch the Jupyter notebook. 
 
 ## Finishing setting up the environment
-Two tools ([StrainSeeker](http://bioinfo.ut.ee/strainseeker/) and [jvarkit](https://github.com/lindenb/jvarkit)) are not available in Conda so we have to install them separately. First, we load the Conda environment to ensure the best compatibility. One tool ([NGSutils/BAMutils](https://github.com/ngsutils/ngsutils) has a bug in the Conda installation so we have to install it manually.
+Two tools ([StrainSeeker](http://bioinfo.ut.ee/strainseeker/) and [jvarkit](https://github.com/lindenb/jvarkit)) are not available in Conda so we have to install them separately. First we load the Conda environment to ensure the best compatibility. One tool ([NGSutils/BAMutils](https://github.com/ngsutils/ngsutils) has a bug in the Conda installation so we have to install it manually.
 
 ```
 source activate treponema
