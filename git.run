@@ -9,7 +9,7 @@ git add --all . # This adds new files and removes the old one, default in Git 2.
 git commit # Adding your own comment
 
 # Add remote repository
-#git remote add origin https://github.com/opplatek/grillova_et_al_dpn_enrich.git
+#git remote add origin https://github.com/opplatek/bacterial_genome_analysis.git
 
 # Push the local snapshot to a remote destination
 git push origin master
