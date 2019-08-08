@@ -231,3 +231,6 @@ jupyter notebook
 ```
 
 And load the downloaded Jupyter notebook (**bacterial_genome_analysis.ipynb**)(https://github.com/opplatek/bacterial_genome_analysis/blob/master/bacterial_genome_analysis.ipynb) and enjoy the analysis.
+
+# Citation
+If you use this workflow or its part, please cite this publication as well as the individual tools in the used section(s): Grillová, L., Oppelt, J., Mikalová, L., Nováková, M., Giacani, L., Niesnerová, A., ... & Šmajs, D. (2019). *Directly sequenced genomes of contemporary strains of syphilis reveal recombination-driven diversity in genes encoding predicted surface-exposed antigens*. Frontiers in Microbiology, 10, 1691.
